@@ -1,30 +1,27 @@
 class Tabs {
-    constructor() {
+    getInfo () {
+      return {
+        id: 'tabs',
+        name: 'Tabs',
+        blocks: [
+          {
+            opcode: 'openURL',
+            blockType: Scratch.BlockType.COMMAND,
+            text: 'open [URL]',
+            arguments: {
+              URL: {
+                type: Scratch.ArgumentType.STRING,
+                defaultValue: 'https://turbowarp.org'
+              }
+            }
+          }
+        ]
+      };
     }
-    
-    getInfo() {
-        return {
-            "id": "Tabs",
-            "name": "Tabs",
-            "blocks": [
-                        {
-                            "opcode": "openURL",
-                            "blockType": "command",
-                            "text": "open [url]",
-                            "arguments": {
-                                "url": {
-                                    "type": "string",
-                                    "defaultValue": "https://scratch.mit.edu"
-                                },
-                            }
-                        }
-                ],
-        };
+  
+    get (args) {
+      return window.open(args.URL);
     }
-    
-    openURL({url}) {
-        window.open("url")
-    }
-}
-
-Scratch.extensions.register(new Tabs())
+  }
+  
+  Scratch.extensions.register(new Tabs());
