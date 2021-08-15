@@ -7,9 +7,9 @@ class Text {
           {
             opcode: 'UpperCase',
             blockType: Scratch.BlockType.REPORTER,
-            text: '[TEXT] to upper case',
+            text: '[TextUp] to upper case',
             arguments: {
-              TEXT: {
+              TextUp: {
                 type: Scratch.ArgumentType.STRING,
                 defaultValue: 'TurboWarp'
               }
@@ -20,7 +20,7 @@ class Text {
     }
   
     get (args) {
-      return args.TEXT.toUpperCase();
+      return args.TextUp.toUpperCase();
     }
   }
   
